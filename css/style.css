@@ -413,6 +413,9 @@ html.booting .boot, .boot.done {
 .sigil.pending .ln { stroke-dasharray: 1 1; stroke-dashoffset: 1; }
 .sigil.pending .fade { opacity: 0; }
 
+/* Fade the sigil on work-in-progress cards so the stamp reads first */
+.project[data-status="wip"] .project-sigil { opacity: .4; }
+
 /* Unfinished sigil (work-in-progress projects): every line stops at --frac of its
    length. The draw-in starts from an offset of --frac so it still traces in from nothing. */
 .sigil.unfinished .ln { stroke-dasharray: var(--frac, 1) 2; stroke-dashoffset: 0; }
