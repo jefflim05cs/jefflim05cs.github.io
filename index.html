@@ -102,11 +102,13 @@
         <h2 id="work-h">Selected work</h2>
       </header>
 
-      <!-- ✏️ One <article> per project. data-seed drives the card's sigil. -->
+      <!-- ✏️ One <article> per project. data-seed drives the card's sigil.
+           For unfinished projects add data-status="wip" and a <span class="stamp"> in the plate. -->
       <div class="projects">
-        <article class="project reveal" data-seed="CYBERPUNK SQUAD BATTLER" data-tier="1">
+        <article class="project reveal" data-seed="CYBERPUNK SQUAD BATTLER" data-tier="1" data-status="wip">
           <div class="project-plate">
             <span class="project-no">01</span>
+            <span class="stamp">In development</span>
             <div class="project-sigil"></div>
           </div>
           <div class="project-body">
@@ -114,7 +116,7 @@
             <p>An offline, single-player 2D cyberpunk RPG built around character recruitment, party progression and strategic turn-based battles.</p>
             <p>Game logic is kept separate from the JavaFX interface, with local save persistence and a suite of 700+ passing JUnit 5 tests.</p>
             <ul class="tags"><li>Java 21</li><li>JavaFX 21</li><li>Gradle</li><li>JUnit 5</li></ul>
-            <p class="status-line">In development · planned Steam release December 2026</p>
+            <p class="status-line">Planned Steam release · December 2026</p>
           </div>
         </article>
 

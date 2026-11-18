@@ -287,6 +287,19 @@ html.booting .boot, .boot.done {
   font-family: var(--font-display); font-weight: 600; font-size: 54px; line-height: 1;
   color: var(--text); opacity: .9;
 }
+/* "In development" rubber stamp for work-in-progress projects */
+.stamp {
+  position: absolute; top: 22px; right: 22px; z-index: 2;
+  padding: 6px 12px 5px;
+  font-family: var(--font-mono); font-size: 12px; font-weight: 700;
+  letter-spacing: .16em; text-transform: uppercase;
+  color: var(--accent);
+  background: var(--plate);
+  border: 2px solid currentColor;
+  outline: 1px solid currentColor; outline-offset: 2px;
+  transform: rotate(-5deg);
+  transition: background-color .3s;
+}
 .project-sigil {
   position: absolute; right: -40px; bottom: -70px; width: 290px;
   color: var(--sigil);
@@ -400,6 +413,12 @@ html.booting .boot, .boot.done {
 .sigil.pending .ln { stroke-dasharray: 1 1; stroke-dashoffset: 1; }
 .sigil.pending .fade { opacity: 0; }
 
+/* Unfinished sigil (work-in-progress projects): every line stops at --frac of its
+   length. The draw-in starts from an offset of --frac so it still traces in from nothing. */
+.sigil.unfinished .ln { stroke-dasharray: var(--frac, 1) 2; stroke-dashoffset: 0; }
+.sigil.unfinished.pending .ln,
+.sigil.unfinished.draw-in .ln { stroke-dasharray: var(--frac, 1) 2; stroke-dashoffset: var(--frac, 1); }
+
 /* 14. City (skyline.js classes) ------------------------------------------- */
 .sk-sky { fill: var(--sk-sky); transition: fill .3s; }
 .sk-sun { fill: var(--sk-sun); opacity: .55; }
@@ -484,6 +503,7 @@ html.booting .boot, .boot.done {
   .js .reveal { opacity: 1; transform: none; }
   .sigil.draw-in .ln, .sigil.pending .ln { stroke-dasharray: none; stroke-dashoffset: 0; }
   .sigil.draw-in .fade, .sigil.pending .fade { opacity: 1; }
+  .sigil.unfinished .ln { stroke-dasharray: var(--frac, 1) 2 !important; stroke-dashoffset: 0 !important; }
 }
 
 /* 18. Display type: Archivo Expanded -------------------------------------- */

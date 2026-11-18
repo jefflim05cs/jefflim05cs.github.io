@@ -19,7 +19,17 @@
 
   var lazySigils = [];
   $$('.project').forEach(function (card) {
-    var s = HexSigil.create({ seed: card.getAttribute('data-seed'), className: reduce ? '' : 'pending' });
+    var seed = card.getAttribute('data-seed');
+    var s = HexSigil.create({ seed: seed, className: reduce ? '' : 'pending' });
+    // Work-in-progress projects get an unfinished sigil: each line stops partway
+    // (same seed -> same pattern). A few lines stay complete so the structure still reads.
+    if (card.getAttribute('data-status') === 'wip') {
+      var R = HexSigil.rng(HexSigil.hash(seed + ' // WIP'));
+      s.classList.add('unfinished');
+      $$('.ln', s).forEach(function (line) {
+        line.style.setProperty('--frac', R() < 0.25 ? '1' : (0.25 + R() * 0.55).toFixed(2));
+      });
+    }
     $('.project-sigil', card).appendChild(s);
     lazySigils.push(s);
   });
