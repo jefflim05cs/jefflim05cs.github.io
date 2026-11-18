@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>YOUR NAME — Portfolio</title>
+  <meta name="description" content="Portfolio of YOUR NAME, computer science student.">
+  <meta name="theme-color" content="#F7F3E3">
+
+  <script>
+    /* Theme + boot decided before first paint (no flash). */
+    (function () {
+      var d = document.documentElement;
+      d.classList.add('js');
+      try { var t = localStorage.getItem('hexfile-theme'); if (t === 'dark' || t === 'light') d.setAttribute('data-theme', t); } catch (e) {}
+      var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var seen = false;
+      try { seen = sessionStorage.getItem('hexfile-booted') === '1'; } catch (e) {}
+      if (!reduce && !seen) d.classList.add('booting');
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<!-- ✏️ data-owner seeds your personal sigil -->
+<body data-owner="YOUR NAME">
+
+  <!-- ============ BOOT: the sigil inks itself in ============ -->
+  <div class="boot" id="boot" aria-hidden="true">
+    <div class="boot-sigil" id="bootSigil"></div>
+    <p class="boot-line"><span>FILE 0x2A</span> <span id="bootLine">OPENING RECORD…</span></p>
+    <button class="boot-skip" id="bootSkip" type="button">SKIP</button>
+  </div>
+
+  <!-- ============ MASTHEAD ============ -->
+  <header class="masthead">
+    <a class="brand" href="#top" aria-label="YOUR NAME — home">
+      <svg class="monogram" viewBox="0 0 48 54" aria-hidden="true">
+        <polygon points="24,2 46,14.5 46,39.5 24,52 2,39.5 2,14.5"/>
+        <text x="24" y="32" text-anchor="middle">YN</text>
+      </svg>
+      <span class="brand-name">YOUR NAME</span>
+    </a>
+    <nav class="mainnav" aria-label="Main">
+      <a href="#work"><small>0x01</small>Work</a>
+      <a href="#toolkit"><small>0x02</small>Toolkit</a>
+      <a href="#log"><small>0x03</small>Log</a>
+      <a href="#contact"><small>0x04</small>Contact</a>
+    </nav>
+    <div class="mast-actions">
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch colour theme">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12,2 20.7,7 20.7,17 12,22 3.3,17 3.3,7"/><path d="M12 2v20l8.7-5V7z" class="fill"/></svg>
+        <span id="themeLabel">DARK</span>
+      </button>
+      <a class="btn btn-ghost btn-sm" href="#" data-soon>Résumé</a>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="kicker reveal">FILE 0x2A <span class="sep">//</span> COMPUTER SCIENCE <span class="sep">//</span> CLASS OF 2028</p>
+        <h1 class="reveal">Your Name<span class="dot">.</span></h1>
+        <p class="statement reveal">I build games, developer tools, and the occasional compiler, and I care about how they feel to use.</p>
+        <p class="status reveal"><span class="hexdot" aria-hidden="true"></span>Open to Summer 2027 internships · Based in Your City</p>
+        <div class="cta reveal">
+          <a class="btn btn-solid" href="#work">View work <span aria-hidden="true">→</span></a>
+          <a class="btn btn-ghost" href="#" data-soon>Download résumé</a>
+        </div>
+      </div>
+
+      <figure class="plate reveal">
+        <div class="plate-inner">
+          <div class="plate-sigil" id="heroSigil"></div>
+          <span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
+        </div>
+        <figcaption>
+          <span>PLATE I — PERSONAL SIGIL</span>
+          <span>SEED: <b id="seedLabel">YOUR NAME</b></span>
+        </figcaption>
+      </figure>
+    </section>
+
+    <!-- flat vector city band -->
+    <div class="city" id="city" aria-hidden="true"></div>
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track" id="tickerTrack">
+        <span>NOW BUILDING: HEXPATH ENGINE</span><span>READING: CRAFTING INTERPRETERS</span><span>0x59 0x4F 0x55 0x52</span><span>LAST COMMIT: 2H AGO</span><span>STATUS: OPEN TO INTERNSHIPS</span>
+      </div>
+    </div>
+
+    <!-- ============ WORK ============ -->
+    <section class="section" id="work" aria-labelledby="work-h">
+      <header class="section-head reveal">
+        <span class="section-no">0x01</span>
+        <h2 id="work-h">Selected work</h2>
+        <span class="section-meta">
+          <span class="legend"><i class="t1"></i>Flagship</span>
+          <span class="legend"><i class="t2"></i>Shipped</span>
+          <span class="legend"><i class="t3"></i>In progress</span>
+        </span>
+      </header>
+
+      <!-- ✏️ One <article> per project. data-seed drives the card's sigil. -->
+      <div class="projects">
+        <article class="project reveal" data-seed="HEXPATH ENGINE" data-tier="1">
+          <div class="project-plate">
+            <span class="project-no">01</span>
+            <span class="tier" title="Flagship"></span>
+            <div class="project-sigil"></div>
+          </div>
+          <div class="project-body">
+            <h3>HexPath Engine</h3>
+            <p>A WebGPU renderer and pathfinding sandbox for hex-grid games, with A*, flow fields and a live debug overlay.</p>
+            <ul class="tags"><li>Rust</li><li>WebGPU</li><li>WGSL</li></ul>
+            <p class="links"><a href="#" data-soon>Code ↗</a><a href="#" data-soon>Demo ↗</a></p>
+          </div>
+        </article>
+
+        <article class="project reveal" data-seed="TINYLANG" data-tier="1">
+          <div class="project-plate">
+            <span class="project-no">02</span>
+            <span class="tier" title="Flagship"></span>
+            <div class="project-sigil"></div>
+          </div>
+          <div class="project-body">
+            <h3>Tinylang</h3>
+            <p>A small compiled language with a hand-written parser, type checker and LLVM backend. Compiles itself.</p>
+            <ul class="tags"><li>C++</li><li>LLVM</li><li>Compilers</li></ul>
+            <p class="links"><a href="#" data-soon>Code ↗</a><a href="#" data-soon>Write-up ↗</a></p>
+          </div>
+        </article>
+
+        <article class="project reveal" data-seed="COURSEBOARD" data-tier="2">
+          <div class="project-plate">
+            <span class="project-no">03</span>
+            <span class="tier" title="Shipped"></span>
+            <div class="project-sigil"></div>
+          </div>
+          <div class="project-body">
+            <h3>Courseboard</h3>
+            <p>A course planner that students at my university use to build their schedules each semester.</p>
+            <ul class="tags"><li>TypeScript</li><li>React</li><li>Postgres</li></ul>
+            <p class="links"><a href="#" data-soon>Code ↗</a><a href="#" data-soon>Live ↗</a></p>
+          </div>
+        </article>
+
+        <article class="project reveal" data-seed="CTF TOOLKIT" data-tier="3">
+          <div class="project-plate">
+            <span class="project-no">04</span>
+            <span class="tier" title="In progress"></span>
+            <div class="project-sigil"></div>
+          </div>
+          <div class="project-body">
+            <h3>CTF Toolkit</h3>
+            <p>Exploit scripts and write-ups from capture-the-flag competitions, from heap exploitation to crypto.</p>
+            <ul class="tags"><li>Python</li><li>pwntools</li><li>Security</li></ul>
+            <p class="links"><a href="#" data-soon>Code ↗</a><a href="#" data-soon>Write-ups ↗</a></p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ TOOLKIT ============ -->
+    <section class="section" id="toolkit" aria-labelledby="toolkit-h">
+      <header class="section-head reveal">
+        <span class="section-no">0x02</span>
+        <h2 id="toolkit-h">Toolkit</h2>
+        <span class="section-meta">
+          <span class="legend"><i class="t1"></i>Daily driver</span>
+          <span class="legend"><i class="t2"></i>Comfortable</span>
+          <span class="legend"><i class="t3"></i>Learning</span>
+        </span>
+      </header>
+      <!-- ✏️ Edit this list; JS turns it into the honeycomb. data-level: 1 = daily, 2 = comfortable, 3 = learning -->
+      <ul class="skill-list" id="skillList">
+        <li data-level="1">Rust</li><li data-level="1">TypeScript</li><li data-level="1">Python</li>
+        <li data-level="1">C++</li><li data-level="1">Git</li><li data-level="2">React</li>
+        <li data-level="2">Postgres</li><li data-level="2">Linux</li><li data-level="2">Docker</li>
+        <li data-level="2">LLVM</li><li data-level="2">WebGPU</li><li data-level="2">Go</li>
+        <li data-level="3">Kubernetes</li><li data-level="3">Haskell</li><li data-level="3">CUDA</li>
+        <li data-level="3">Zig</li>
+      </ul>
+      <div class="honeycomb reveal" id="honeycomb" aria-hidden="true"></div>
+    </section>
+
+    <!-- ============ LOG ============ -->
+    <section class="section" id="log" aria-labelledby="log-h">
+      <header class="section-head reveal">
+        <span class="section-no">0x03</span>
+        <h2 id="log-h">Log</h2>
+        <span class="section-meta">Experience &amp; field notes</span>
+      </header>
+      <div class="log-grid">
+        <ol class="timeline reveal">
+          <li>
+            <span class="when">2026</span>
+            <div><h3>Software Engineering Intern</h3><p class="org">Company Name</p><p>Built internal tooling that cut CI times for the platform team.</p></div>
+          </li>
+          <li>
+            <span class="when">2025</span>
+            <div><h3>Teaching Assistant, Data Structures</h3><p class="org">Your University</p><p>Ran weekly labs and wrote the autograder for the hashing assignment.</p></div>
+          </li>
+          <li>
+            <span class="when">2024</span>
+            <div><h3>Started B.S. Computer Science</h3><p class="org">Your University</p><p>Joined the game dev club and the CTF team in the first month.</p></div>
+          </li>
+        </ol>
+        <div class="notes reveal">
+          <h3 class="notes-h">Field notes</h3>
+          <a class="note" href="#" data-soon><span class="when">2026.10</span><span class="note-t">Pathfinding on a hex grid, explained</span><span aria-hidden="true">→</span></a>
+          <a class="note" href="#" data-soon><span class="when">2026.07</span><span class="note-t">What writing a type checker taught me about error messages</span><span aria-hidden="true">→</span></a>
+          <a class="note" href="#" data-soon><span class="when">2026.03</span><span class="note-t">Generating sigils from a seed with SVG</span><span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ CONTACT ============ -->
+  <footer class="contact" id="contact">
+    <div class="contact-inner">
+      <div>
+        <span class="section-no">0x04</span>
+        <h2>Let’s build something.</h2>
+        <a class="email" href="#" data-soon>you@example.com</a>
+        <p class="contact-links">
+          <a href="#" data-soon>GitHub ↗</a><a href="#" data-soon>LinkedIn ↗</a><a href="#" data-soon>Résumé ↗</a>
+        </p>
+      </div>
+      <div class="contact-sigil" id="contactSigil"></div>
+    </div>
+    <p class="colophon">Set in Archivo &amp; Space Mono. Every sigil on this page is generated from a seed. © <span id="year">2026</span> YOUR NAME</p>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/sigil.js"></script>
+  <script src="js/skyline.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
