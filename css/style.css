@@ -431,6 +431,20 @@ html.booting .boot, .boot.done {
 .icon-set img:nth-child(4) { transform: rotate(-2deg) translateY(3px); }
 .project:hover .icon-set img { transform: none; }
 
+/* Print set: overlapping screenshots laid on the plate */
+.print-set { position: absolute; inset: 0; }
+.print {
+  position: absolute; display: block; width: 236px; height: auto;
+  border: 3px solid var(--cream);
+  box-shadow: 4px 4px 0 var(--shadow);
+  background: #fff;
+  transition: transform .25s var(--ease);
+}
+.print-back  { right: 172px; top: 16px; transform: rotate(-3deg); }
+.print-front { right: 24px;  top: 58px; transform: rotate(3deg); }
+.project:hover .print-back  { transform: rotate(-1deg) translate(-6px, -4px); }
+.project:hover .print-front { transform: rotate(1deg) translate(6px, 2px); }
+
 .mod-list { display: grid; gap: 6px; margin: 2px 0 2px; }
 .mod-list li { padding-left: 14px; position: relative; font-size: 15px; line-height: 1.45; }
 .mod-list li::before {
@@ -526,6 +540,9 @@ html.booting .boot, .boot.done {
   .project-sigil { width: 230px; }
   .icon-set { right: 18px; grid-template-columns: repeat(2, 60px); gap: 10px; }
   .icon-set img { width: 60px; height: 60px; }
+  .print { width: 140px; }
+  .print-back  { right: 116px; top: 76px; }
+  .print-front { right: 12px; top: 22px; }
   .timeline li, .note { grid-template-columns: 1fr; gap: 4px; }
   .note span[aria-hidden] { display: none; }
 }
