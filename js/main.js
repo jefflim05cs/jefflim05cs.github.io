@@ -19,6 +19,8 @@
 
   var lazySigils = [];
   $$('.project').forEach(function (card) {
+    var slot = $('.project-sigil', card);
+    if (!slot) return; // cards with their own artwork (e.g. icon sets) skip the sigil
     var seed = card.getAttribute('data-seed');
     var s = HexSigil.create({ seed: seed, className: reduce ? '' : 'pending' });
     // Work-in-progress projects get an unfinished sigil: each line stops partway
@@ -30,7 +32,7 @@
         line.style.setProperty('--frac', R() < 0.25 ? '1' : (0.25 + R() * 0.55).toFixed(2));
       });
     }
-    $('.project-sigil', card).appendChild(s);
+    slot.appendChild(s);
     lazySigils.push(s);
   });
   var contactSigil = HexSigil.create({ seed: owner + ' // CONTACT', detail: 'mini', className: reduce ? '' : 'pending' });

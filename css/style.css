@@ -413,6 +413,35 @@ html.booting .boot, .boot.done {
 .sigil.pending .ln { stroke-dasharray: 1 1; stroke-dashoffset: 1; }
 .sigil.pending .fade { opacity: 0; }
 
+/* Icon set: project icons laid on the plate like small prints */
+.icon-set {
+  position: absolute; right: 26px; top: 50%; transform: translateY(-50%);
+  display: grid; grid-template-columns: repeat(2, 78px); gap: 14px;
+}
+.icon-set img {
+  display: block; width: 78px; height: 78px; object-fit: cover;
+  background: #000;
+  border: 3px solid var(--cream);
+  box-shadow: 4px 4px 0 var(--shadow);
+  transition: transform .25s var(--ease);
+}
+.icon-set img:nth-child(1) { transform: rotate(-3deg); }
+.icon-set img:nth-child(2) { transform: rotate(2deg) translateY(4px); }
+.icon-set img:nth-child(3) { transform: rotate(1.5deg); }
+.icon-set img:nth-child(4) { transform: rotate(-2deg) translateY(3px); }
+.project:hover .icon-set img { transform: none; }
+
+.mod-list { display: grid; gap: 6px; margin: 2px 0 2px; }
+.mod-list li { padding-left: 14px; position: relative; font-size: 15px; line-height: 1.45; }
+.mod-list li::before {
+  content: ''; position: absolute; left: 0; top: .5em; width: 7px; height: 8px;
+  background: var(--accent);
+  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+}
+.mod-list b { font-weight: 600; }
+.mod-list b::after { content: ' — '; font-weight: 400; color: var(--muted); }
+.mod-list span { color: var(--muted); }
+
 /* Fade the sigil on work-in-progress cards so the stamp reads first */
 .project[data-status="wip"] .project-sigil { opacity: .4; }
 
@@ -495,6 +524,8 @@ html.booting .boot, .boot.done {
   .section-meta { margin-left: 0; width: 100%; }
   .project-plate { height: 170px; }
   .project-sigil { width: 230px; }
+  .icon-set { right: 18px; grid-template-columns: repeat(2, 60px); gap: 10px; }
+  .icon-set img { width: 60px; height: 60px; }
   .timeline li, .note { grid-template-columns: 1fr; gap: 4px; }
   .note span[aria-hidden] { display: none; }
 }

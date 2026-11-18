@@ -123,11 +123,23 @@
         <article class="project reveal" data-seed="MINECRAFT MODS" data-tier="2">
           <div class="project-plate">
             <span class="project-no">02</span>
-            <div class="project-sigil"></div>
+            <!-- ✏️ Mod icons live in assets/mods/ -->
+            <div class="icon-set">
+              <img src="assets/mods/height-locked.webp" alt="Height Locked icon" width="256" height="256" loading="lazy">
+              <img src="assets/mods/outline-guard.webp" alt="Outline Guard icon" width="137" height="137" loading="lazy">
+              <img src="assets/mods/kleene-builds.webp" alt="Kleene Builds icon" width="256" height="256" loading="lazy">
+              <img src="assets/mods/crimson-waysync.webp" alt="Crimson WaySync icon" width="256" height="256" loading="lazy">
+            </div>
           </div>
           <div class="project-body">
             <h3>Minecraft Mods</h3>
-            <p>Four published Fabric mods with gameplay utilities for mining restrictions, building assistance and multiplayer waypoint synchronization.</p>
+            <p>Four published Fabric mods for Minecraft, with 400+ downloads combined on Modrinth.</p>
+            <ul class="mod-list">
+              <li><b>Height Locked</b><span>Restricts mining to two block layers while a keybind is toggled.</span></li>
+              <li><b>Outline Guard</b><span>Prevents accidental vertical mining past your own outline markers while clearing an area.</span></li>
+              <li><b>Kleene Builds</b><span>Building assistance.</span></li>
+              <li><b>Crimson WaySync</b><span>Syncs shared minimap waypoints between players on a server, with Xaero’s Minimap and VoxelMap support.</span></li>
+            </ul>
             <ul class="tags"><li>Java</li><li>Fabric API</li></ul>
             <p class="links"><a href="https://modrinth.com/user/CSClub05" target="_blank" rel="noopener">Modrinth ↗</a></p>
           </div>
