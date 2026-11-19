@@ -31,15 +31,7 @@
   --t2: var(--tan);
   --t3: var(--gray);
 
-  /* city */
-  --sk-sky: var(--bg);
-  --sk-sun: var(--tan);
-  --sk-far: var(--gray);
-  --sk-mid: var(--tan);
-  --sk-near: var(--brown);
-  --sk-win-far: #C9CBCB;
-  --sk-win: #C4A982;
-  --sk-win-near: #3A2E23;
+  --ticker-bg: var(--brown);
 
   --font-display: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
   --font-body: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
@@ -65,13 +57,7 @@
 
   --t3: #7E8182;
 
-  --sk-sun: var(--oxblood);
-  --sk-far: #4A3D31;
-  --sk-mid: #6E5A42;
-  --sk-near: #18120D;
-  --sk-win-far: #5A4C3F;
-  --sk-win: #8A7454;
-  --sk-win-near: #2A211A;
+  --ticker-bg: #18120D;
 }
 
 /* 2. Base ------------------------------------------------------------------ */
@@ -231,11 +217,9 @@ html.booting .boot, .boot.done {
 .plate figcaption b { color: var(--text); font-weight: 500; }
 
 /* 7. City band + ticker ---------------------------------------------------- */
-.city { height: clamp(200px, 26vw, 360px); overflow: hidden; }
-.city svg { width: 100%; height: 100%; display: block; }
 .ticker {
   overflow: hidden; white-space: nowrap;
-  background: var(--sk-near); color: var(--cream);
+  background: var(--ticker-bg); color: var(--cream);
   border-top: 3px solid var(--oxblood);
   font-family: var(--font-mono); font-size: 12px; letter-spacing: .16em;
 }
@@ -453,35 +437,7 @@ html.booting .boot, .boot.done {
 .sigil.unfinished.pending .ln,
 .sigil.unfinished.draw-in .ln { stroke-dasharray: var(--frac, 1) 2; stroke-dashoffset: var(--frac, 1); }
 
-/* 14. City (skyline.js classes) ------------------------------------------- */
-.sk-sky { fill: var(--sk-sky); transition: fill .3s; }
-.sk-sun { fill: var(--sk-sun); opacity: .55; }
-.sk-sunline { fill: none; stroke: var(--oxblood); stroke-width: 2; opacity: .5; }
-.sk-sunline.faint { opacity: .25; stroke-width: 1.2; }
-.sk-far { fill: var(--sk-far); }
-.sk-mid { fill: var(--sk-mid); }
-.sk-near { fill: var(--sk-near); }
-.sk-win-far { fill: var(--sk-win-far); }
-.sk-win { fill: var(--sk-win); }
-.sk-win-near { fill: var(--sk-win-near); }
-.sk-win-red { fill: var(--oxblood); }
-.sk-win-gold { fill: var(--cream); }
-.sk-rim { fill: var(--oxblood); opacity: .7; }
-.sk-rim-hot { fill: var(--oxblood); }
-.sk-ant { stroke: var(--sk-far); stroke-width: 2; }
-.sk-l-mid .sk-ant { stroke: var(--sk-mid); }
-.sk-l-near .sk-ant { stroke: var(--sk-near); }
-.sk-beacon { fill: var(--oxblood); }
-.sk-bb { fill: var(--oxblood); }
-.sk-bb-line { fill: none; stroke: var(--cream); stroke-width: 4; }
-.sk-bb-ink { fill: var(--cream); }
-.sk-bb-txt { fill: var(--cream); font-family: var(--font-mono); font-size: 15px; letter-spacing: .1em; }
-.sk-reflect { fill: var(--tan); opacity: .5; }
-.sk-layer { will-change: transform; }
-
 /* 15. FX ------------------------------------------------------------------- */
-.blink { animation: blink var(--bt, 5s) steps(1, end) infinite; }
-.flicker { animation: flicker 9s linear infinite; }
 
 .js .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
 .js .reveal.in { opacity: 1; transform: none; }
@@ -503,8 +459,6 @@ html.booting .boot, .boot.done {
 @keyframes sg-fade { to { opacity: 1; } }
 @keyframes pulse { 50% { opacity: .35; } }
 @keyframes ticker { to { transform: translateX(-50%); } }
-@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: .2; } }
-@keyframes flicker { 0%, 100% { opacity: 1; } 2% { opacity: .5; } 3% { opacity: 1; } }
 
 /* 16. Responsive ----------------------------------------------------------- */
 @media (max-width: 960px) {

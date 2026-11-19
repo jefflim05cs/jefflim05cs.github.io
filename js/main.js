@@ -1,5 +1,5 @@
 /* ==========================================================================
-   main.js (v2): boot, sigils, city, honeycomb, theme, reveals
+   main.js (v2): boot, sigils, honeycomb, theme, reveals
    ========================================================================== */
 (function () {
   'use strict';
@@ -43,26 +43,6 @@
     if (!svg.classList.contains('pending')) return;
     svg.classList.remove('pending');
     svg.classList.add('draw-in');
-  }
-
-  /* ---------- City band ---------- */
-  var city = HexSkyline.create({ seed: 'city-' + owner });
-  city.svg.setAttribute('viewBox', '0 300 1600 600'); // show the rooftops, crop the empty sky
-  $('#city').appendChild(city.svg);
-
-  if (!reduce && window.matchMedia && matchMedia('(pointer: fine)').matches) {
-    var tx = 0, cx = 0, raf = null;
-    var tick = function () {
-      cx += (tx - cx) * 0.07;
-      city.layers.forEach(function (g) {
-        g.style.transform = 'translateX(' + (-cx * parseFloat(g.getAttribute('data-depth')) * 40).toFixed(2) + 'px)';
-      });
-      raf = Math.abs(tx - cx) > 0.0005 ? requestAnimationFrame(tick) : null;
-    };
-    window.addEventListener('pointermove', function (e) {
-      tx = e.clientX / window.innerWidth - 0.5;
-      if (!raf) raf = requestAnimationFrame(tick);
-    });
   }
 
   /* ---------- Ticker: duplicate for a seamless loop ---------- */
