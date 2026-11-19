@@ -17,13 +17,24 @@
       var seen = false;
       try { seen = sessionStorage.getItem('hexfile-booted') === '1'; } catch (e) {}
       if (!reduce && !seen) d.classList.add('booting');
+
+      /* Safety net: if the page script fails or never finishes, skip the intro and
+         show all content instead of a stuck or blank page. main.js sets __siteReady. */
+      function bail() { d.classList.remove('booting'); d.classList.remove('js'); }
+      window.addEventListener('error', function (e) {
+        var t = e.target;
+        var scriptFailed = t && t.tagName === 'SCRIPT';
+        if (!window.__siteReady && (scriptFailed || t === window)) bail();
+      }, true);
+      setTimeout(function () { if (!window.__siteReady) bail(); }, 6000);
     })();
   </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <!-- ?v= forces browsers to fetch fresh files after an update: bump it whenever css/ or js/ change -->
+  <link rel="stylesheet" href="css/style.css?v=20261119">
 </head>
 
 <!-- ✏️ data-owner seeds your personal sigil -->
@@ -227,7 +238,7 @@
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-  <script src="js/sigil.js"></script>
-  <script src="js/main.js"></script>
+  <script src="js/sigil.js?v=20261119"></script>
+  <script src="js/main.js?v=20261119"></script>
 </body>
 </html>

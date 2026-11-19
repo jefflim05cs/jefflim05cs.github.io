@@ -187,4 +187,5 @@
     clearTimeout(toastTimer);
     toastTimer = setTimeout(function () { toast.classList.remove('show'); }, 2200);
   });
+  window.__siteReady = true; // tells the safety net in index.html that everything ran
 })();
