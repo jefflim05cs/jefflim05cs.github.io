@@ -330,7 +330,8 @@ html.booting .boot, .boot.done {
 .when { font-size: 13px; color: var(--accent); letter-spacing: .06em; padding-top: 6px; }
 .timeline h3 { font-family: var(--font-display); font-weight: 600; font-size: 24px; line-height: 1.2; }
 .org { font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 4px 0 8px; }
-.timeline p:last-child { color: var(--muted); }
+.timeline p:not(.org) { color: var(--muted); }
+.timeline p + p:not(.org) { margin-top: 4px; }
 
 .status-line { font-family: var(--font-mono); font-size: 12px; letter-spacing: .04em; color: var(--accent) !important; margin-top: auto; padding-top: 8px; }
 /* 12. Contact -------------------------------------------------------------- */

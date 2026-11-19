@@ -93,7 +93,21 @@
         t.setAttribute('x', x.toFixed(1));
         t.setAttribute('y', (y + 4).toFixed(1));
         if (small) t.setAttribute('font-size', '10');
-        t.textContent = s.name;
+        // Long two-word labels (e.g. "Tailwind CSS") wrap onto two lines to fit the hexagon
+        var words = s.name.split(' ');
+        if (s.name.length > 10 && words.length > 1) {
+          var lineH = small ? 11 : 14;
+          var first = words.slice(0, -1).join(' '), last = words[words.length - 1];
+          [first, last].forEach(function (line, k) {
+            var span = document.createElementNS(NS, 'tspan');
+            span.setAttribute('x', x.toFixed(1));
+            span.setAttribute('y', (y + 4 + (k - 0.5) * lineH).toFixed(1));
+            span.textContent = line;
+            t.appendChild(span);
+          });
+        } else {
+          t.textContent = s.name;
+        }
         g.appendChild(idx);
         g.appendChild(t);
       }
